@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AvitoParserDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advertisment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Number" Type="bigint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="Seller" Type="nvarchar" MaxLength="255" />
+          <Property Name="DatePublished" Type="datetime" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="SoldOut" Type="bit" />
+          <Property Name="DateSold" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="AvitoParserDbModelStoreContainer">
+          <EntitySet Name="Advertisment" EntityType="Self.Advertisment" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AvitoParserDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AvitoParserDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advertisments" EntityType="AvitoParserDbModel.Advertisment" />
+        </EntityContainer>
+        <EntityType Name="Advertisment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Int64" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Seller" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DatePublished" Type="DateTime" Precision="3" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SoldOut" Type="Boolean" />
+          <Property Name="DateSold" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AvitoParserDbModelStoreContainer" CdmEntityContainer="AvitoParserDbEntities">
+          <EntitySetMapping Name="Advertisments">
+            <EntityTypeMapping TypeName="AvitoParserDbModel.Advertisment">
+              <MappingFragment StoreEntitySet="Advertisment">
+                <ScalarProperty Name="DateSold" ColumnName="DateSold" />
+                <ScalarProperty Name="SoldOut" ColumnName="SoldOut" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="DatePublished" ColumnName="DatePublished" />
+                <ScalarProperty Name="Seller" ColumnName="Seller" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
